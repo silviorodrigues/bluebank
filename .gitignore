@@ -34,3 +34,7 @@ coverage
 
 # nyc test coverage
 .nyc_output
+
+# Front-end dependences
+bower_components/
+node_modules/
