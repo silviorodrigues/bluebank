@@ -38,3 +38,4 @@ coverage
 # Front-end dependences
 bower_components/
 node_modules/
+.DS_Store
