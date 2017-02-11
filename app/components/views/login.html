@@ -1,0 +1,7 @@
+<h1>Login</h1>
+<form ng-submit="vm.fakeLogin()">
+	<input type="text" name="cpf" id="cpf" ng-model="vm.cpf" />
+	<input type="password" name="password" id="password" ng-model="vm.password" />
+	<input type="submit" value="Entrar" />
+	<p ng-show="vm.loading">Loading...</p>
+</form>

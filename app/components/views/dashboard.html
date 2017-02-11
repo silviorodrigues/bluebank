@@ -1,0 +1,12 @@
+<nav>
+  <a href ng-click="vm.section='historic'">Histórico</a>
+  <a href ng-click="vm.section='transfer'">Nova Transferência</a>
+</nav>
+
+<main ng-if="vm.section=='historic'">
+  <h1>Histórico</h1>
+</main>
+
+<main ng-if="vm.section=='transfer'">
+  <h1>Tranferência</h1>
+</main>
