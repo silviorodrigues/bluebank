@@ -1,7 +1,19 @@
-<h1>Login</h1>
-<form ng-submit="vm.fakeLogin()">
-	<input type="text" name="cpf" id="cpf" ng-model="vm.cpf" />
-	<input type="password" name="password" id="password" ng-model="vm.password" />
-	<input type="submit" value="Entrar" />
-	<p ng-show="vm.loading">Loading...</p>
-</form>
+<div class="login">
+  <div class="login__box">
+    <img src="resources/images/logo-bluebank.png" alt="Logo BlueBank">
+    <form ng-submit="vm.fakeLogin()" class="login__form">
+      <div class="input">
+        <label for="cpf">Entre com seu CPF:</label>
+        <input type="text" name="cpf" id="cpf" ng-model="vm.cpf" ui-br-cpf-mask />
+      </div>
+
+      <div class="input">
+        <label for="password">Entre com sua senha:</label>
+        <input type="password" name="password" id="password" ng-model="vm.password" />
+      </div>
+
+    	<input class="btn" type="submit" value="Entrar" />
+    </form>
+  </div>
+</div>
+<div class="loader" ng-show="vm.loading"></div>

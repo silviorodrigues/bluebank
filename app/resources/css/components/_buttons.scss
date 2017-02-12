@@ -1,0 +1,16 @@
+.btn {
+  background-color: $green;
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: $roboto;
+  font-weight: bolder;
+  font-size: 1.25em;
+  padding: 15px 60px;
+  text-align: center;
+  transition: ease all .2s;
+  &:hover {
+    background-color: $blue;
+  }
+}

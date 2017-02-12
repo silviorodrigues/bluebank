@@ -8,6 +8,7 @@
     "angular": "1.2.x",
     "angular-route": "1.2.x",
     "angular-mocks": "1.2.x",
-    "angular-filter": "^0.5.14"
+    "angular-filter": "^0.5.14",
+    "angular-input-masks": "^2.5.0"
   }
 }

@@ -1,0 +1,21 @@
+.input {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 30px;
+  label {
+    color: $gray;
+    display: block;
+    font-family: $roboto;
+    font-size: 1.125em;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  input {
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: $gray;
+    padding: 15px 10px;
+    width: 100%;
+  }
+}
