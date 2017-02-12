@@ -1,0 +1,33 @@
+.historic-list {
+  margin-bottom: 60px;
+  h2 {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: $orange;
+  }
+  .historic {
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 30px;
+    .historic__name {
+      font-size: 1.25em;
+      color: $dark-gray;
+      small {
+        font-size: .7em;
+      }
+    }
+    .historic__datas {
+      font-size: .875em;
+      color: $gray;
+    }
+    .historic__value {
+      font-weight: bolder;
+      font-size: 1.25em;
+      color: $green;
+    }
+  }
+}

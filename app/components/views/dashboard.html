@@ -9,30 +9,32 @@
   </div>
 </div>
 
-<main ng-show="vm.section=='historic'">
-  <section class="container">
-    <div class="historic-list" ng-repeat="(key, value) in vm.fakeHistoric | map: vm.toLocaleDate | groupBy: 'date'">
-      <h2>Date: {{key | groupDate}}</h2>
-      <div class="historic" ng-repeat="transfer in value">
-        <p>{{transfer.name}} - <small>{{transfer.date | date:'medium'}}</small></p>
-        <p>Ag: {{transfer.ag}}</p>
-        <p>Conta: {{transfer.cc}}</p>
-        <p>{{transfer.value | currency}}</p>
+<main class="container">
+  <section ng-show="vm.section=='historic'">
+      <div class="historic-list" ng-repeat="(key, value) in vm.fakeHistoric | map: vm.toLocaleDate | groupBy: 'date'">
+        <h2>{{key | groupDate}}</h2>
+        <div class="historic" ng-repeat="transfer in value">
+          <div>
+            <p class="historic__name">{{transfer.name}} - <small>{{transfer.date | date:'medium'}}</small></p>
+            <p class="historic__datas">Ag: {{transfer.ag}}<br>
+            Conta: {{transfer.cc}}</p>
+          </div>
+          <p class="historic__value">{{transfer.value | currency}}</p>
+        </div>
       </div>
-    </div>
+    </section>
+
+  <section ng-show="vm.section=='transfer'">
+    <h1>Tranferência</h1>
+    <form ng-submit="vm.transfer()">
+      <input type="text" name="ag" id="ag" ng-model="ag">
+      <input type="text" name="cc" id="cc" ng-model="cc">
+      <input type="text" name="cpf" id="cpf" ng-model="cpf">
+      <input type="text" name="value" id="value" ng-model="value">
+      <input type="submit" value="Iniciar Transferência">
+    </form>
+    <p ng-show="vm.loading">Loading...</p>
+
+    <ui-modal title="Não encontramos sua conta de destino" ng-show="vm.modal"></ui-modal>
   </section>
-</main>
-
-<main ng-show="vm.section=='transfer'">
-  <h1>Tranferência</h1>
-  <form ng-submit="vm.transfer()">
-    <input type="text" name="ag" id="ag" ng-model="ag">
-    <input type="text" name="cc" id="cc" ng-model="cc">
-    <input type="text" name="cpf" id="cpf" ng-model="cpf">
-    <input type="text" name="value" id="value" ng-model="value">
-    <input type="submit" value="Iniciar Transferência">
-  </form>
-  <p ng-show="vm.loading">Loading...</p>
-
-  <ui-modal title="Não encontramos sua conta de destino" ng-show="vm.modal"></ui-modal>
 </main>
