@@ -25,16 +25,28 @@
     </section>
 
   <section ng-show="vm.section=='transfer'">
-    <h1>Tranferência</h1>
+    <h2>Dados do destinatário:</h2>
     <form ng-submit="vm.transfer()">
-      <input type="text" name="ag" id="ag" ng-model="ag">
-      <input type="text" name="cc" id="cc" ng-model="cc">
-      <input type="text" name="cpf" id="cpf" ng-model="cpf">
-      <input type="text" name="value" id="value" ng-model="value">
-      <input type="submit" value="Iniciar Transferência">
+      <div class="input">
+        <label for="ag">Agência: (sem o dígito)</label>
+        <input type="text" name="ag" id="ag" ng-model="vm.ag" />
+      </div>
+      <div class="input">
+        <label for="cc">Conta:</label>
+        <input type="text" name="cc" id="cc" ng-model="vm.cc" />
+      </div>
+      <div class="input">
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" id="cpf" ng-model="vm.cpf" ui-br-cpf-mask />
+      </div>
+      <div class="input">
+        <label for="value">Valor:</label>
+        <input type="text" name="value" id="value" ng-model="vm.value" ui-money-mask/>
+      </div>
+      <input class="btn" type="submit" value="Iniciar Transferência">
     </form>
-    <p ng-show="vm.loading">Loading...</p>
+    <div class="loader" ng-show="vm.loading"></div>
 
-    <ui-modal title="Não encontramos sua conta de destino" ng-show="vm.modal"></ui-modal>
+    <ui-modal title="Não encontramos a conta de destino" ng-show="vm.modal"></ui-modal>
   </section>
 </main>
