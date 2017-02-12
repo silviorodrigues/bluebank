@@ -3,7 +3,7 @@
   <a href ng-click="vm.section='transfer'">Nova Transferência</a>
 </nav>
 
-<main ng-if="vm.section=='historic'">
+<main ng-show="vm.section=='historic'">
   <h1>Histórico</h1>
   <div ng-repeat="(key, value) in vm.fakeHistoric | map: vm.toLocaleDate | groupBy: 'date'">
     <h2>Date: {{key | groupDate}}</h2>
@@ -18,6 +18,16 @@
   </div>
 </main>
 
-<main ng-if="vm.section=='transfer'">
+<main ng-show="vm.section=='transfer'">
   <h1>Tranferência</h1>
+  <form ng-submit="vm.transfer()">
+    <input type="text" name="ag" id="ag" ng-model="ag">
+    <input type="text" name="cc" id="cc" ng-model="cc">
+    <input type="text" name="cpf" id="cpf" ng-model="cpf">
+    <input type="text" name="value" id="value" ng-model="value">
+    <input type="submit" value="Iniciar Transferência">
+  </form>
+  <p ng-show="vm.loading">Loading...</p>
+
+  <ui-modal title="Não encontramos sua conta de destino" ng-show="vm.modal"></ui-modal>
 </main>

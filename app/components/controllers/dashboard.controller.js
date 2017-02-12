@@ -1,8 +1,11 @@
 'use strict'
 
-angular.module('bluebank').controller('dashboardController', function($scope) {
+angular.module('bluebank').controller('dashboardController', function($scope, $timeout) {
 	var vm = this;
-	vm.section='historic';
+  vm.toLocaleDate = toLocaleDate;
+  vm.transfer = trasnfer;
+
+	vm.section='transfer';
   vm.fakeHistoric = [
     {
       "id": 1,
@@ -46,9 +49,17 @@ angular.module('bluebank').controller('dashboardController', function($scope) {
     },
   ];
 
-  vm.toLocaleDate = function(e) {
+  function toLocaleDate(e) {
     e.date = e.date.toLocaleDateString();
     return e;
   };
+
+  function trasnfer() {
+    vm.loading = true;
+    $timeout(function(){
+      vm.loading = false;
+      vm.modal = true;
+    }, 2000);
+  }
 
 });
