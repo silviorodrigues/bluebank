@@ -1,21 +1,26 @@
-<nav>
-  <a href ng-click="vm.section='historic'">Histórico</a>
-  <a href ng-click="vm.section='transfer'">Nova Transferência</a>
-</nav>
+<div class="nav">
+  <div class="nav__menu">
+    <img src="resources/images/logo-bluebank--white.png" alt="Logo Blue Bank" class="menu__logo">
+    <a class="menu__link" href ng-click="vm.section='historic'" ng-class="{'active': vm.section=='historic'}">Histórico</a>
+    <a class="menu__link" href ng-click="vm.section='transfer'" ng-class="{'active': vm.section=='transfer'}">Nova Transferência</a>
+  </div>
+  <div class="nav__user">
+    Olá, Silvio Rodrigues
+  </div>
+</div>
 
 <main ng-show="vm.section=='historic'">
-  <h1>Histórico</h1>
-  <div ng-repeat="(key, value) in vm.fakeHistoric | map: vm.toLocaleDate | groupBy: 'date'">
-    <h2>Date: {{key | groupDate}}</h2>
-    <div ng-repeat="transfer in value">
-      <p>{{transfer.name}} - <small>{{transfer.date | date:'medium'}}</small></p>
-      <p>Ag: {{transfer.ag}}</p>
-      <p>Conta: {{transfer.cc}}</p>
-      <p>{{transfer.value | currency}}</p>
-      ---
+  <section class="container">
+    <div class="historic-list" ng-repeat="(key, value) in vm.fakeHistoric | map: vm.toLocaleDate | groupBy: 'date'">
+      <h2>Date: {{key | groupDate}}</h2>
+      <div class="historic" ng-repeat="transfer in value">
+        <p>{{transfer.name}} - <small>{{transfer.date | date:'medium'}}</small></p>
+        <p>Ag: {{transfer.ag}}</p>
+        <p>Conta: {{transfer.cc}}</p>
+        <p>{{transfer.value | currency}}</p>
+      </div>
     </div>
-    =======================
-  </div>
+  </section>
 </main>
 
 <main ng-show="vm.section=='transfer'">

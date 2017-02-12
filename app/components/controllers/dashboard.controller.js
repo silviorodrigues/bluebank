@@ -5,7 +5,7 @@ angular.module('bluebank').controller('dashboardController', function($scope, $t
   vm.toLocaleDate = toLocaleDate;
   vm.transfer = trasnfer;
 
-	vm.section='transfer';
+	vm.section='historic';
   vm.fakeHistoric = [
     {
       "id": 1,
