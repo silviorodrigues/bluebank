@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bluebank', ['ngRoute']).config( function( $routeProvider ) {
+angular.module('bluebank', ['ngRoute', 'angular.filter']).config( function( $routeProvider ) {
 
 	$routeProvider
 		.when('/login', {

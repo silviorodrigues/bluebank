@@ -5,6 +5,17 @@
 
 <main ng-if="vm.section=='historic'">
   <h1>Histórico</h1>
+  <div ng-repeat="(key, value) in vm.fakeHistoric | map: vm.toLocaleDate | groupBy: 'date'">
+    <h2>Date: {{key | groupDate}}</h2>
+    <div ng-repeat="transfer in value">
+      <p>{{transfer.name}} - <small>{{transfer.date | date:'medium'}}</small></p>
+      <p>Ag: {{transfer.ag}}</p>
+      <p>Conta: {{transfer.cc}}</p>
+      <p>{{transfer.value | currency}}</p>
+      ---
+    </div>
+    =======================
+  </div>
 </main>
 
 <main ng-if="vm.section=='transfer'">
