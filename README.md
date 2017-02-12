@@ -1,3 +1,31 @@
+### Dependencies
+
+```
+npm install
+```
+
+### Gulp
+
+Gulp is included on Development Dependencies. Running the previous command might install it.
+To install gulp you should run this command:
+
+```
+npm install gulp --global
+```
+
+#### Gulp Tasks
+Run:
+
+```
+gulp
+
+
+### Start Server
+
+```
+npm start
+```
+
 # Blue Bank - Estamos contratando!
 
 
